@@ -215,7 +215,7 @@ set backspace=indent,eol,start
 set noequalalways
 set errorformat=%m\ in\ %f\ on\ line\ %l
 set fileencodings=ucs-bom,utf-8,default,latin1
-set guifont=Monospace\ 9
+set guifont=Monaco\ 9
 set guioptions=aegirLt
 set helplang=en
 set history=50
@@ -244,21 +244,27 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +27 api.php
-badd +0 index.php
-silent! argdel *
-edit index.php
+badd +54 api.php
+badd +11 index.php
+badd +166 js/functions.js
+badd +215 php/WebService.php
+badd +26 php/RestUtils.php
+badd +29 js/util.js
+badd +26 js/defines.js
+badd +20 js/init.js
+badd +0 php/MPD.php
+args [BufExplorer]
+edit php/WebService.php
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
-1wincmd h
+wincmd _ | wincmd |
+vsplit
+2wincmd h
 wincmd _ | wincmd |
 split
 1wincmd k
 wincmd w
-wincmd _ | wincmd |
-vsplit
-1wincmd h
 wincmd w
 wincmd w
 set nosplitbelow
@@ -266,11 +272,10 @@ set nosplitright
 wincmd t
 set winheight=1 winwidth=1
 exe '1resize ' . ((&lines * 1 + 31) / 63)
-exe 'vert 1resize ' . ((&columns * 206 + 117) / 234)
+exe 'vert 1resize ' . ((&columns * 119 + 117) / 234)
 exe '2resize ' . ((&lines * 59 + 31) / 63)
-exe 'vert 2resize ' . ((&columns * 99 + 117) / 234)
-exe '3resize ' . ((&lines * 59 + 31) / 63)
-exe 'vert 3resize ' . ((&columns * 106 + 117) / 234)
+exe 'vert 2resize ' . ((&columns * 119 + 117) / 234)
+exe 'vert 3resize ' . ((&columns * 86 + 117) / 234)
 exe 'vert 4resize ' . ((&columns * 27 + 117) / 234)
 argglobal
 enew
@@ -424,8 +429,8 @@ setlocal formatexpr=
 setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
+setlocal iminsert=0
+setlocal imsearch=0
 setlocal include=\\(require\\|include\\)\\(_once\\)\\?
 setlocal includeexpr=
 setlocal indentexpr=
@@ -477,15 +482,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 11 - ((10 * winheight(0) + 29) / 59)
+let s:l = 149 - ((27 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
-normal! 0
+149
+normal! 037l
 wincmd w
 argglobal
-edit index.php
+edit php/MPD.php
 onoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
 nnoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
 onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
@@ -532,8 +537,8 @@ setlocal formatexpr=
 setlocal formatoptions=tcq
 setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
 setlocal grepprg=
-setlocal iminsert=2
-setlocal imsearch=2
+setlocal iminsert=0
+setlocal imsearch=0
 setlocal include=\\(require\\|include\\)\\(_once\\)\\?
 setlocal includeexpr=
 setlocal indentexpr=
@@ -585,11 +590,11 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 11 - ((10 * winheight(0) + 29) / 59)
+let s:l = 209 - ((28 * winheight(0) + 30) / 61)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-11
+209
 normal! 0
 wincmd w
 argglobal
@@ -712,11 +717,10 @@ setlocal nowrap
 setlocal wrapmargin=0
 wincmd w
 exe '1resize ' . ((&lines * 1 + 31) / 63)
-exe 'vert 1resize ' . ((&columns * 206 + 117) / 234)
+exe 'vert 1resize ' . ((&columns * 119 + 117) / 234)
 exe '2resize ' . ((&lines * 59 + 31) / 63)
-exe 'vert 2resize ' . ((&columns * 99 + 117) / 234)
-exe '3resize ' . ((&lines * 59 + 31) / 63)
-exe 'vert 3resize ' . ((&columns * 106 + 117) / 234)
+exe 'vert 2resize ' . ((&columns * 119 + 117) / 234)
+exe 'vert 3resize ' . ((&columns * 86 + 117) / 234)
 exe 'vert 4resize ' . ((&columns * 27 + 117) / 234)
 tabnext 1
 if exists('s:wipebuf')
