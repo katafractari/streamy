@@ -1,0 +1,36 @@
+#streams
+{
+	font-size: 11px;
+	padding-top: 20px;
+	margin-bottom: 10px;
+}
+
+#stream
+{
+	
+}
+
+#add
+{
+	margin-top: 10px;
+	text-align: right;
+}
+
+.odd
+{
+	background: #fff;
+	padding: 2px 2px 2px 2px;
+}
+
+.even
+{
+	background: #eee;
+	padding: 2px 2px 2px 2px;
+}
+
+.edit
+{
+	float: right;
+	text-align: right;
+	padding-top: 3px;
+}

@@ -1,0 +1,27 @@
+RewriteEngine On
+# RewriteRule !\.(js|ico|gif|jpg|png|css|html|swf|mp3|wav)$ index.php [L]
+
+# handle POST requests and Requests with a POST method override for
+# my "accounts" endpoints
+# RewriteCond %{REQUEST_METHOD} ^POST|GET [NC,OR]
+# RewriteCond %{HTTP:X-HTTP-Method-Override} ^POST|GET [NC]
+
+# Main page
+RewriteRule ^api/(.*)$ /streammanager/api.php?handler=$1 [QSA,NC,L]
+
+# A simple routing mechanism for REST reuqests
+# All of GET methods
+#RewriteCond %{REQUEST_METHOD} ^GET [NC,OR]
+#RewriteCond %{REQUEST_URI} ^/streammanager [NC]
+#RewriteRule ^(status|play|stop)$ /streammanager/api.php?action=$1 [L]
+#RewriteRule ^streams$ /streammanager/api.php?action=streams [L]
+
+#yes, I intentionally left this very loose for this sample
+# RewriteRule accounts/(reset)/(.+) /application/services/accounts-open.php?action=$1&arguments[]=$2 [L]
+
+# send any unknown request to a generic handler
+# RewriteCond %{REQUEST_METHOD} ^GET|POST|PUT|DELETE [NC]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule .* /application/services/default.php?action=general [L]
+
+

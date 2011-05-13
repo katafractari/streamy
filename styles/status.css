@@ -1,0 +1,15 @@
+#name
+{
+	font-family: Monospace;
+	font-size: 16px;
+	font-weight: bold;
+}
+#url
+{
+	font-size: 10px;
+}
+#title
+{
+	font-size: 10px;
+	text-decoration: underline;
+}

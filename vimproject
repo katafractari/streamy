@@ -1,0 +1,93 @@
+
+streammanager=/home/brejktru/workspace/streammanager CD=~/workspace/streammanager filter="*.php *.css .htaccess *.js" {
+ api.php
+ index.php
+ test.php
+ .htaccess
+ images=images {
+  form=form {
+  }
+  icons=icons {
+   human=human {
+   }
+   reinhard=reinhard {
+   }
+  }
+  streams=streams {
+  }
+ }
+ js=js {
+  defines.js
+  functions.js
+  init.js
+  jquery-1.5.2.js
+  jquery-ui-1.8.11.custom.min.js
+  prettyForms.js
+  util.js
+ }
+ log=log {
+ }
+ mysql=mysql {
+ }
+ php=php {
+  Database.php
+  Defines.php
+  Lastfm.php
+  MPD.php
+  MPDInstance.php
+  RestRequest.php
+  RestUtils.php
+  Utils.php
+  WebService.php
+  main.php
+  FirePHPCore=FirePHPCore {
+   FirePHP.class.php
+   fb.php
+  }
+  lastfmapi=lastfmapi {
+   lastfmapi.php
+   .htaccess
+   api=api {
+    album.php
+    artist.php
+    auth.php
+    event.php
+    geo.php
+    group.php
+    library.php
+    playlist.php
+    radio.php
+    tag.php
+    tasteometer.php
+    track.php
+    user.php
+    venue.php
+   }
+   class=class {
+    apibase.php
+    cache.php
+    mysql.php
+    socket.php
+    sqlite.php
+   }
+  }
+ }
+ styles=styles {
+  addStreamDialog.css
+  art.css
+  handheld.css
+  jquery-ui-1.8.11.custom.css
+  menu.css
+  prettyForms.css
+  print.css
+  screen.css
+  settings.css
+  status.css
+  streams.css
+  images=images {
+  }
+ }
+ templates=templates {
+  addStreamDialog.php
+ }
+}

@@ -1,0 +1,12 @@
+#addStreamDialog
+{
+	display: none;
+}
+
+.error
+{
+	color: red;
+	font-size: 9px;
+	font-family: monospace;
+	width: 100%;
+}

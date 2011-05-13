@@ -1,0 +1,734 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <silent> <S-Tab> =BackwardsSnippet()
+inoremap <silent> <Plug>NERDCommenterInInsert  <BS>:call NERDComment(0, "insert")
+map! <S-Insert> <MiddleMouse>
+snoremap <silent> 	 i<Right>=TriggerSnippet()
+map  ok
+snoremap  b<BS>
+snoremap % b<BS>%
+snoremap ' b<BS>'
+nnoremap ,e :python debugger_watch_input("eval")A
+nmap ,l :set list!
+nmap K <Plug>ManPageView
+xmap S <Plug>VSurround
+snoremap U b<BS>U
+snoremap \ b<BS>\
+nmap <silent> \ups :call Perl_RemoveGuiMenus()
+nmap <silent> \lps :call Perl_CreateGuiMenus()
+map \dt :python debugger_command('step_out')
+map \do :python debugger_command('step_over')
+map \di :python debugger_command('step_into')
+map \dr :python debugger_resize()
+map \rwp <Plug>RestoreWinPosn
+map \swp <Plug>SaveWinPosn
+nmap <silent> \ucs :call C_RemoveGuiMenus()
+nmap <silent> \lcs :call C_CreateGuiMenus()
+nmap <silent> \ubs :call BASH_RemoveGuiMenus()
+nmap <silent> \lbs :call BASH_CreateGuiMenus()
+nmap \ca <Plug>NERDCommenterAltDelims
+vmap \cA <Plug>NERDCommenterAppend
+nmap \cA <Plug>NERDCommenterAppend
+vmap \c$ <Plug>NERDCommenterToEOL
+nmap \c$ <Plug>NERDCommenterToEOL
+vmap \cu <Plug>NERDCommenterUncomment
+nmap \cu <Plug>NERDCommenterUncomment
+vmap \cn <Plug>NERDCommenterNest
+nmap \cn <Plug>NERDCommenterNest
+vmap \cb <Plug>NERDCommenterAlignBoth
+nmap \cb <Plug>NERDCommenterAlignBoth
+vmap \cl <Plug>NERDCommenterAlignLeft
+nmap \cl <Plug>NERDCommenterAlignLeft
+vmap \cy <Plug>NERDCommenterYank
+nmap \cy <Plug>NERDCommenterYank
+vmap \ci <Plug>NERDCommenterInvert
+nmap \ci <Plug>NERDCommenterInvert
+vmap \cs <Plug>NERDCommenterSexy
+nmap \cs <Plug>NERDCommenterSexy
+vmap \cm <Plug>NERDCommenterMinimal
+nmap \cm <Plug>NERDCommenterMinimal
+vmap \c  <Plug>NERDCommenterToggle
+nmap \c  <Plug>NERDCommenterToggle
+vmap \cc <Plug>NERDCommenterComment
+nmap \cc <Plug>NERDCommenterComment
+noremap <silent> \Eel :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate('EvalSelectionLog')
+noremap <silent> \Eer :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate('exe "norm! i".')
+noremap <silent> \Eea `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate('exe "norm! a".')
+noremap <silent> \Eep :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_calculate("echomsg")
+noremap <silent> \Eee :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate("")
+noremap <silent> \Eex :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_calculate("")
+vnoremap <silent> \eel "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate('EvalSelectionLog')
+vnoremap <silent> \eer "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate('exe "norm! i".')
+vnoremap <silent> \eea "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate('exe "norm! a".')
+vnoremap <silent> \eep "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_calculate("echomsg")
+vnoremap <silent> \eee "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_calculate("")
+vnoremap <silent> \eex "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_calculate("")
+noremap <silent> \Esl :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh('EvalSelectionLog')
+noremap <silent> \Esr :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh('exe "norm! i".')
+noremap <silent> \Esa `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh('exe "norm! a".')
+noremap <silent> \Esp :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_sh("echomsg")
+noremap <silent> \Ese :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh("")
+noremap <silent> \Esx :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_sh("")
+vnoremap <silent> \esl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh('EvalSelectionLog')
+vnoremap <silent> \esr "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh('exe "norm! i".')
+vnoremap <silent> \esa "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh('exe "norm! a".')
+vnoremap <silent> \esp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_sh("echomsg")
+vnoremap <silent> \ese "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_sh("")
+vnoremap <silent> \esx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_sh("")
+noremap <silent> \Etl :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl('EvalSelectionLog')
+noremap <silent> \Etr :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl('exe "norm! i".')
+noremap <silent> \Eta `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl('exe "norm! a".')
+noremap <silent> \Etp :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_tcl("echomsg")
+noremap <silent> \Ete :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl("")
+noremap <silent> \Etx :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_tcl("")
+vnoremap <silent> \etl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl('EvalSelectionLog')
+vnoremap <silent> \etr "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl('exe "norm! i".')
+vnoremap <silent> \eta "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl('exe "norm! a".')
+vnoremap <silent> \etp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_tcl("echomsg")
+vnoremap <silent> \ete "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_tcl("")
+vnoremap <silent> \etx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_tcl("")
+noremap <silent> \Epl :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl('EvalSelectionLog')
+noremap <silent> \Epr :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl('exe "norm! i".')
+noremap <silent> \Epa `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl('exe "norm! a".')
+noremap <silent> \Epp :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_perl("echomsg")
+noremap <silent> \Epe :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl("")
+noremap <silent> \Epx :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_perl("")
+vnoremap <silent> \epl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl('EvalSelectionLog')
+vnoremap <silent> \epr "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl('exe "norm! i".')
+vnoremap <silent> \epa "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl('exe "norm! a".')
+vnoremap <silent> \epp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_perl("echomsg")
+vnoremap <silent> \epe "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_perl("")
+vnoremap <silent> \epx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_perl("")
+noremap <silent> \Eyl :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python('EvalSelectionLog')
+noremap <silent> \Eyr :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python('exe "norm! i".')
+noremap <silent> \Eya `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python('exe "norm! a".')
+noremap <silent> \Eyp :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_python("echomsg")
+noremap <silent> \Eye :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python("")
+noremap <silent> \Eyx :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_python("")
+vnoremap <silent> \eyl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python('EvalSelectionLog')
+vnoremap <silent> \eyr "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python('exe "norm! i".')
+vnoremap <silent> \eya "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python('exe "norm! a".')
+vnoremap <silent> \eyp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_python("echomsg")
+vnoremap <silent> \eye "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_python("")
+vnoremap <silent> \eyx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_python("")
+noremap <silent> \Erl :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby('EvalSelectionLog')
+noremap <silent> \Err :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby('exe "norm! i".')
+noremap <silent> \Era `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby('exe "norm! a".')
+noremap <silent> \Erp :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_ruby("echomsg")
+noremap <silent> \Ere :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby("")
+noremap <silent> \Erx :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_ruby("")
+vnoremap <silent> \erl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby('EvalSelectionLog')
+vnoremap <silent> \err "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby('exe "norm! i".')
+vnoremap <silent> \era "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby('exe "norm! a".')
+vnoremap <silent> \erp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_ruby("echomsg")
+vnoremap <silent> \ere "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_ruby("")
+vnoremap <silent> \erx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_ruby("")
+noremap <silent> \Evl :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim('EvalSelectionLog')
+noremap <silent> \Evr :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim('exe "norm! i".')
+noremap <silent> \Eva `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim('exe "norm! a".')
+noremap <silent> \Evp :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_vim("echomsg")
+noremap <silent> \Eve :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim("")
+noremap <silent> \Evx :let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_vim("")
+vnoremap <silent> \evl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim('EvalSelectionLog')
+vnoremap <silent> \evr "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim('exe "norm! i".')
+vnoremap <silent> \eva "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim('exe "norm! a".')
+vnoremap <silent> \evp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_vim("echomsg")
+vnoremap <silent> \eve "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_vim("")
+vnoremap <silent> \evx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_vim("")
+vnoremap <silent> \xl "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_{&ft}('EvalSelectionLog')
+vnoremap <silent> \xr "ed:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_{&ft}('exe "norm! i".')
+vnoremap <silent> \xa "ey `>:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_{&ft}('exe "norm! a".')
+vnoremap <silent> \xp "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_{&ft}("echomsg")
+vnoremap <silent> \xe "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):silent call EvalSelection_{&ft}("")
+vnoremap <silent> \xx "ey:let g:evalSelLastCmd = substitute(@e, "\n$", "", ""):call EvalSelection_{&ft}("")
+snoremap ^ b<BS>^
+snoremap ` b<BS>`
+nmap cs <Plug>Csurround
+nmap ds <Plug>Dsurround
+nmap gx <Plug>NetrwBrowseX
+xmap gS <Plug>VgSurround
+xmap s <Plug>Vsurround
+nmap ySS <Plug>YSsurround
+nmap ySs <Plug>YSsurround
+nmap yss <Plug>Yssurround
+nmap yS <Plug>YSurround
+nmap ys <Plug>Ysurround
+snoremap <Left> bi
+snoremap <Right> a
+snoremap <BS> b<BS>
+snoremap <silent> <S-Tab> i<Right>=BackwardsSnippet()
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+map <F12> :python debugger_watch_input("property_get", '<cword>')A
+map <F11> :python debugger_watch_input("context_get")A
+map <F9> :python debugger_command('step_out')
+map <F8> :python debugger_command('step_over')
+map <F7> :python debugger_command('step_into')
+map <F6> :python debugger_quit()
+map <F5> :python debugger_run()
+map <F4> :python debugger_command('step_out')
+map <F3> :python debugger_command('step_over')
+map <F2> :python debugger_command('step_into')
+map <F1> :python debugger_resize()
+nmap <silent> <Plug>RestoreWinPosn :call RestoreWinPosn()
+nmap <silent> <Plug>SaveWinPosn :call SaveWinPosn()
+nmap <silent> <Plug>NERDCommenterAppend :call NERDComment(0, "append")
+nnoremap <silent> <Plug>NERDCommenterToEOL :call NERDComment(0, "toEOL")
+vnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment(1, "uncomment")
+nnoremap <silent> <Plug>NERDCommenterUncomment :call NERDComment(0, "uncomment")
+vnoremap <silent> <Plug>NERDCommenterNest :call NERDComment(1, "nested")
+nnoremap <silent> <Plug>NERDCommenterNest :call NERDComment(0, "nested")
+vnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment(1, "alignBoth")
+nnoremap <silent> <Plug>NERDCommenterAlignBoth :call NERDComment(0, "alignBoth")
+vnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment(1, "alignLeft")
+nnoremap <silent> <Plug>NERDCommenterAlignLeft :call NERDComment(0, "alignLeft")
+vmap <silent> <Plug>NERDCommenterYank :call NERDComment(1, "yank")
+nmap <silent> <Plug>NERDCommenterYank :call NERDComment(0, "yank")
+vnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment(1, "invert")
+nnoremap <silent> <Plug>NERDCommenterInvert :call NERDComment(0, "invert")
+vnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment(1, "sexy")
+nnoremap <silent> <Plug>NERDCommenterSexy :call NERDComment(0, "sexy")
+vnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment(1, "minimal")
+nnoremap <silent> <Plug>NERDCommenterMinimal :call NERDComment(0, "minimal")
+vnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment(1, "toggle")
+nnoremap <silent> <Plug>NERDCommenterToggle :call NERDComment(0, "toggle")
+vnoremap <silent> <Plug>NERDCommenterComment :call NERDComment(1, "norm")
+nnoremap <silent> <Plug>NERDCommenterComment :call NERDComment(0, "norm")
+map <S-CR> Oj
+map <S-Insert> <MiddleMouse>
+cnoremap  <Home>
+cnoremap  <Left>
+cnoremap  <Right>
+imap S <Plug>ISurround
+imap s <Plug>Isurround
+inoremap <silent> 	 =TriggerSnippet()
+inoremap <silent> 	 =ShowAvailableSnips()
+imap  <Plug>Isurround
+cnoremap f <S-Right>
+cnoremap b <S-Left>
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set background=dark
+set backspace=indent,eol,start
+set noequalalways
+set errorformat=%m\ in\ %f\ on\ line\ %l
+set fileencodings=ucs-bom,utf-8,default,latin1
+set guifont=Monospace\ 9
+set guioptions=aegirLt
+set helplang=en
+set history=50
+set hlsearch
+set incsearch
+set makeprg=php\ -l\ %
+set nomodeline
+set mouse=a
+set printoptions=paper:letter
+set ruler
+set runtimepath=~/.vim,/var/lib/vim/addons,/usr/share/vim/vimfiles,/usr/share/vim/vim72,/usr/share/vim/vimfiles/after,/var/lib/vim/addons/after,~/.vim/after
+set shiftwidth=4
+set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set tabpagemax=50
+set tabstop=4
+set termencoding=utf-8
+set wildmenu
+set wildmode=longest:full
+set winwidth=1
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/workspace/streammanager
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +27 api.php
+badd +0 index.php
+silent! argdel *
+edit index.php
+set splitbelow splitright
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd w
+wincmd _ | wincmd |
+vsplit
+1wincmd h
+wincmd w
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 1 + 31) / 63)
+exe 'vert 1resize ' . ((&columns * 206 + 117) / 234)
+exe '2resize ' . ((&lines * 59 + 31) / 63)
+exe 'vert 2resize ' . ((&columns * 99 + 117) / 234)
+exe '3resize ' . ((&lines * 59 + 31) / 63)
+exe 'vert 3resize ' . ((&columns * 106 + 117) / 234)
+exe 'vert 4resize ' . ((&columns * 27 + 117) / 234)
+argglobal
+enew
+file -TabBar-
+let s:cpo_save=&cpo
+set cpo&vim
+nnoremap <buffer> 	 :call search('\[[0-9]*:[^\]]*\]'):<BS>
+nnoremap <buffer> p :wincmd p:<BS>
+nnoremap <buffer> <S-Tab> :call search('\[[0-9]*:[^\]]*\]','b'):<BS>
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=delete
+setlocal nobuflisted
+setlocal buftype=nofile
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != ''
+setlocal filetype=
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal nomodeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+set number
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != ''
+setlocal syntax=
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+wincmd w
+argglobal
+onoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
+nnoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
+onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
+nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'php'
+setlocal filetype=php
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=\\(require\\|include\\)\\(_once\\)\\?
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal nomodeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=phpcomplete#CompletePHP
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'php'
+setlocal syntax=php
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 11 - ((10 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+11
+normal! 0
+wincmd w
+argglobal
+edit index.php
+onoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
+nnoremap <buffer> <silent> [[ ?\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)?:nohls
+onoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
+nnoremap <buffer> <silent> ]] /\(.*\%#\)\@!\_^\s*\zs\(\(abstract\s\+\|final\s\+\|private\s\+\|protected\s\+\|public\s\+\|static\s\+\)*function\|\(abstract\s\+\|final\s\+\)*class\|interface\)/:nohls
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'php'
+setlocal filetype=php
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=\\(require\\|include\\)\\(_once\\)\\?
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal nomodeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+set number
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=phpcomplete#CompletePHP
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'php'
+setlocal syntax=php
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 11 - ((10 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+11
+normal! 0
+wincmd w
+argglobal
+enew
+file __Tag_List__
+let s:cpo_save=&cpo
+set cpo&vim
+inoremap <buffer> <silent> <kMultiply> :silent! %foldopen!
+inoremap <buffer> <silent> <kMinus> :silent! foldclose
+inoremap <buffer> <silent> <kPlus> :silent! foldopen
+nnoremap <buffer> <silent> * :silent! %foldopen!
+nnoremap <buffer> <silent> + :silent! foldopen
+nnoremap <buffer> <silent> - :silent! foldclose
+nnoremap <buffer> <silent> = :silent! %foldclose
+nnoremap <buffer> <silent> q :close
+nnoremap <buffer> <silent> <kMultiply> :silent! %foldopen!
+nnoremap <buffer> <silent> <kMinus> :silent! foldclose
+nnoremap <buffer> <silent> <kPlus> :silent! foldopen
+inoremap <buffer> <silent> * :silent! %foldopen!
+inoremap <buffer> <silent> + :silent! foldopen
+inoremap <buffer> <silent> - :silent! foldclose
+inoremap <buffer> <silent> = :silent! %foldclose
+inoremap <buffer> <silent> q :close
+let &cpo=s:cpo_save
+unlet s:cpo_save
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=Tlist_Ballon_Expr()
+setlocal nobinary
+setlocal bufhidden=delete
+setlocal nobuflisted
+setlocal buftype=nofile
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'taglist'
+setlocal filetype=taglist
+endif
+setlocal foldcolumn=3
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=9999
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=0
+setlocal foldnestmax=20
+setlocal foldtext=v:folddashes.getline(v:foldstart)
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal nomodeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+set number
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal noswapfile
+setlocal synmaxcol=3000
+if &syntax != 'taglist'
+setlocal syntax=taglist
+endif
+setlocal tabstop=4
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+set winfixwidth
+setlocal winfixwidth
+setlocal nowrap
+setlocal wrapmargin=0
+wincmd w
+exe '1resize ' . ((&lines * 1 + 31) / 63)
+exe 'vert 1resize ' . ((&columns * 206 + 117) / 234)
+exe '2resize ' . ((&lines * 59 + 31) / 63)
+exe 'vert 2resize ' . ((&columns * 99 + 117) / 234)
+exe '3resize ' . ((&lines * 59 + 31) / 63)
+exe 'vert 3resize ' . ((&columns * 106 + 117) / 234)
+exe 'vert 4resize ' . ((&columns * 27 + 117) / 234)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=1 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

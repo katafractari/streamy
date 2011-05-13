@@ -1,0 +1,4 @@
+#!/bin/bash
+
+gvim -S vimsession
+# gvim -S vimsession -c "Project vimproject" # +Project

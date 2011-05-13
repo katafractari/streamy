@@ -1,0 +1,23 @@
+.menuEntryText
+{
+	cursor: crosshair;
+}
+.menuTable
+{
+	float: right;
+}
+.menuEntry
+{
+	border: 1px solid black;
+	color: #000;
+	margin: 50px 5px 0px 0px;
+	padding: 0;
+	text-align: center;
+	float: center;
+	height: 20px;
+	font-family: monospace;
+	font-size: 9px;
+	background: #fff;
+}
+#settingsButton { cursor: crosshair; }
+#addButton { cursor: crosshair; }
