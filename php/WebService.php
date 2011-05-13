@@ -146,9 +146,9 @@ class WebService
 				$count = $mpd->playlist_count;
 				$mpd->Play($count - 1);	
 				
+				// Remove all but the played item!
 				for($i = $count - 2; $i >= 0; $i--)
 				{
-					fb($i);
 					$mpd->PLRemove($i);
 				}
 
