@@ -2,8 +2,10 @@
 
 # icy test
 #$url = "http://blank-tv.de.streams.bassdrive.com:8000";
-$host = "213.202.250.90";
-$port = "8000";
+//$host = "213.202.250.90";
+$host = "streamer-ntc-aa08.somafm.com";
+$port = "80";
+$stream = "stream/1018";
 
 if(($fp = fsockopen($host, $port)))
 {
@@ -13,7 +15,7 @@ if(($fp = fsockopen($host, $port)))
 	$icy = false;
 
 	$req = <<< EOF
-GET / HTTP/1.1
+GET /$stream HTTP/1.1
 User-Agent: PHP/".phpversion()."
 Host: $host:$port
 Icy-MetaData: 1
@@ -44,7 +46,7 @@ EOF;
 			{
 				if((ftell($fp) - $header_length) < $icy)
 				{
-					echo "\n".ftell($fp)."\n";
+					//echo "\n".ftell($fp)."\n";
 				}
 				else
 				{
@@ -60,7 +62,7 @@ EOF;
 				if(preg_match("/StreamTitle='(.+?)'/i", $metadata_buffer, $matches))
 				{
 					$title = $matches[1];
-					echo $title;
+					echo "title:" .$title;
 				}
 				//echo "size: ".print_r($size);
 				//echo "tag: (".ftell($fp)."): '".$size."'\n";
@@ -103,7 +105,6 @@ EOF;
 	}
 	fclose($fp);
 }
-echo $i;
 exit;
 # some random test cases :-)
 

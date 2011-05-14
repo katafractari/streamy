@@ -26,6 +26,9 @@ class WebService
 	{
 		$nameValid = Utils::validateStreamName($name);
 		$urlValid = Utils::validateURL($url);
+	
+		fb($urlValid);	
+		return;
 		$data =	array();
 
 		// Check for valid parameters
@@ -61,8 +64,8 @@ class WebService
 				$data =
 					array(
 						"errors" => array(
-										"error" => array()
-									)
+							"error" => array()
+						)
 					);
 
 				if($duplicateName)

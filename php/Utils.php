@@ -53,7 +53,8 @@ class Utils
 			{
 				$data = array(
 					"url" => array(
-						"host" => $matches[1]
+						"host" => $matches[1],
+						"port" => $matches[2]
 					)
 				);
 				if (sizeof($matches) == 3) {

@@ -268,7 +268,7 @@ function play(id)
 			console.log("error");
 		},
 		success: function(xml, textStatus, jqXHR) {
-			status();
+			setTimeout(status, 300);
 		}
 	});
 }

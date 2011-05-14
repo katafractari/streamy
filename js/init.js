@@ -16,5 +16,5 @@ $(document).ready(function() {
 	status();
 	getStreams();
 	prettyForms()
-	//setInterval(status, 10000);		
+	setInterval(status, 10000);		
 });

@@ -18,7 +18,7 @@ Feel free to use this however you like.  Credit is always appreciated.
 	function prettyForms(){
 		fixTextBoxes();
 		fixTextareas();
-		fixSelects();
+		//fixSelects();
 		fixChecks();
 		fixRadios();
 		fixSubmits();

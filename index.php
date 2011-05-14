@@ -45,46 +45,48 @@ include 'php/Utils.php';
 	<body>
 		<div id="container">
 			<div id="top">
-
+				<select style="float: left; width:80px" name="instance" id="instance">
+					<option value="kuhna">Kuhna</option>
+					<option value="rok">Rok</option>
+				</select>
 				<table class="menuTable">
 					<tr>
 						<td>
-				<table class="menuEntry">
-					<tr>
-						<td>
-							<img onclick="showAddStreamDialog()" 
-								id="addButton" 
-								src="images/add.png">
+							<table class="menuEntry">
+								<tr>
+									<td>
+										<img onclick="showAddStreamDialog()" 
+											id="addButton" 
+											src="images/add.png">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="menuEntryText" onclick="showAddStreamDialog()">
+											add stream
+										</span>
+									</td>
+								</tr>
+							</table>
 						</td>
-					</tr>
-					<tr>
 						<td>
-							<span class="menuEntryText" onclick="showAddStreamDialog()">
-								add stream
-							</span>
+							<table class="menuEntry">
+								<tr>
+									<td>
+										<img onclick="showAddStreamDialog()" id="settingsButton" src="images/settings.png">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="menuEntryText" onclick="showAddStreamDialog()">
+											settings
+										</span>
+									</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 				</table>
-						</td>
-						<td>
-				<table class="menuEntry">
-					<tr>
-						<td>
-							<img onclick="showAddStreamDialog()" id="settingsButton" src="images/settings.png">
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<span class="menuEntryText" onclick="showAddStreamDialog()">
-								settings
-							</span>
-						</td>
-					</tr>
-				</table>
-						</td>
-					</tr>
-				</table>
-
 			</div>
 			<div id="sidebar">
 				<div id="art">
