@@ -2,11 +2,29 @@
 
 class MPDInstance
 {
-	public static function connect()
+	/**
+	 * Check which output is the selected one, connect to it and return and 
+	 * instance of mpd class
+	 *
+	 * @return object::mpd or NULL
+	 * @author Me
+	 **/
+	public static function connect(&$db)
 	{
-		return new mpd("10.2.2.254", 6611);
-	}
+		$ret = NULL;
 
+		$selectedOutput = $db->getCurrentOutput();
+		if(strlen($selectedOutput['hostname']) > 0 &&
+			strlen($selectedOutput['port']) > 0)
+		{
+			$ret = new mpd(
+				$selectedOutput['hostname'],
+				$selectedOutput['port']
+			);
+		}
+
+		return $ret;
+	}
 }
 
 ?>

@@ -27,37 +27,23 @@ class WebService
 		$nameValid = Utils::validateStreamName($name);
 		$urlValid = Utils::validateURL($url);
 	
-		fb($urlValid);	
-		return;
 		$data =	array();
 
 		// Check for valid parameters
 		if ($nameValid === true && is_array($urlValid))
 		{
-			$db = Database::connect();
+			$db = new Database();
 			
 			// Check for if name or URL alredy exist in the database
-			$query = "SELECT * FROM streams WHERE name='". $name ."' OR url='". $url ."'";
-			try
-			{
-				$result = $db->query($query);
-			} catch(mysqli_mysql_exception $exception)
-			{
-				//if($execute->getCode() == 0)
-				//{
-				//}
-			}
-			
-			// We've got a duplicate
-			if($result->num_rows > 0)
+			if(($duplicateStreams = $db->streamExists($name, $url)) != NULL)
 			{
 				$duplicateName = false;
 				$duplicateURL = false;
-				while($entry = $result->fetch_assoc())
+				for ($i = 0; $i < $sizeof($duplicateStreams); $i++)
 				{
-					if($entry['name'] == $name)
+					if($duplicateStreams[$i]['name'] == $name)
 						$duplicateName = true;
-					else if($entry['url'] == $url)
+					else if($duplicateStreams[$i]['url'] == $url)
 						$duplicateURL = true;
 				}
 
@@ -85,19 +71,14 @@ class WebService
 			}
 				
 			
-			if ($statement = 
-				$db->prepare("INSERT INTO streams (name, url, created)
-								VALUES (?, ?, now())")) {
-				$statement->bind_param("ss", $name, $url);
-				$statement->execute();
-			
+			if (($id = $db->addStream($name, $url)) != NULL) {
 				// If everything went ok throw a 200 with new stream info!
 				$data =	array(
 					"streams" => array(
 						"stream" => array(
 							"name" => $name,
 							"url" => $url,
-							"id" => $db->insert_id
+							"id" => $id
 						)
 					)
 				);
@@ -132,20 +113,23 @@ class WebService
 		$db->close();
 	}
 
+	/**
+	 * undocumented function
+	 *
+	 * @return void
+	 * @author Me
+	 **/
 	// PUT /api/streams/$id/play
 	public static function play($id)
 	{
-		$mpd = MPDInstance::connect();
-		$db = Database::connect();
+		$db = new Database();
+		$mpd = MPDInstance::connect($db);
 
-		$result = 
-			$db->query("SELECT * FROM streams WHERE id=$id");
-
-		if($entry = $result->fetch_assoc())
+		if(($stream = $db->getStream($id)) != NULL)
 		{
 			if($mpd->connected)
 			{
-				$mpd->PLAdd($entry['url']);
+				$mpd->PLAdd($stream['url']);
 				$count = $mpd->playlist_count;
 				$mpd->Play($count - 1);	
 				
@@ -166,9 +150,16 @@ class WebService
 			{
 				// Send 503 "Service unavailable"
 				RestUtils::sendResponse(
-					503
+					400
 				);
 			}
+		}
+		else
+		{
+			// Send 503 "Service unavailable"
+			RestUtils::sendResponse(
+				400
+			);
 		}
 		$db->close();
 		$mpd->Disconnect();
@@ -178,11 +169,10 @@ class WebService
 	// GET /api/streams
 	public static function streams($data)
 	{
-		$db = Database::connect();
+		$db = new Database();
 
-		$result =
-			$db->query("SELECT * FROM streams ORDER BY name");
-		if($result->num_rows > 0)
+		if(($streams = $db->getStreams()) != NULL)
+		{
 			$data =
 				array(
 					"streams" => array(
@@ -190,18 +180,23 @@ class WebService
 								)
 				);
 						
-		while($entry = $result->fetch_assoc())
-		{
-			array_push($data['streams']['stream'], array(
-											"name" => $entry['name'],
-											"url" => $entry['url'],
-											"id" => $entry['id']
-										));
-		}	
+			for ($i = 0; $i < sizeof($streams); $i++)
+			{
+				array_push($data['streams']['stream'], array(
+												"name" => $streams[$i]['name'],
+												"url" => $streams[$i]['url'],
+												"id" => $streams[$i]['id']
+											));
+			}	
 
-		if(sizeof($data['streams']['stream']) > 0)
+			if(sizeof($data['streams']['stream']) > 0)
+			{
+				RestUtils::sendResponse(200, $data);
+			}
+		}
+		else
 		{
-			RestUtils::sendResponse(200, $data);
+			RestUtils::sendResponse(400, $data);
 		}
 
 		$db->close();
@@ -219,12 +214,8 @@ class WebService
 		if(!is_numeric($id))
 			return NULL;
 
-		$db = Database::connect();
-		$result =
-			$db->query("DELETE FROM streams WHERE id=". $id);
-
-		// Check if stream existed and has been deleted from the database
-		if($db->affected_rows == 1)
+		$db = new Database();
+		if($db->removeStream($id))
 		{
 			RestUtils::sendResponse(200);
 		}
@@ -243,38 +234,52 @@ class WebService
 	 **/
 	public static function status($data)
 	{
-		$mpd = MPDInstance::connect();
+		$db = new Database();
+		$mpd = MPDInstance::connect($db);
 
-		if ($mpd->connected) {
+		if ($mpd->connected) 
+		{
 				
 			$mpdInstance=$mpd->GetCurrentSong();
 
 			// Check if the stream is in db
-			$db = Database::connect();
-
-			$result = 
-				$db->query("SELECT * FROM streams WHERE url='". $mpdInstance['file'] ."'");
-
-			if($row = $result->fetch_assoc())
+			if(($stream = $db->streamExists(NULL, $mpdInstance['file'])) != NULL)
 			{
-				fb($mpdInstance);
 				RestUtils::sendResponse(200, 
 					array(
 						"stream" => array(
-							"name" => $row['name'],
-							"url" => $row['url'],
+							"name" => $stream[0]['name'],
+							"url" => $stream[0]['url'],
 							"title" => $mpdInstance['Title'],
 							"state" => $mpdInstance['state'],
-							"coverUrl" => $row['cover_path']
+							"coverUrl" => $stream[0]['cover_path']
 						)
 					)
 				);
 			}
+			else
+			{
+				RestUtils::sendResponse(400);
+			}
 
-			$db->close();
 			$mpd->Disconnect();
-		}	
-	
+		}
+		else
+		{
+			RestUtils::sendResponse(400);
+		}
+		$db->close();
+			
+	}
+
+	/**
+	 * Get all outputs
+	 *
+	 * @return void
+	 * @author Me
+	 **/
+	public static function getOutputs()
+	{
 	}
 }
 
