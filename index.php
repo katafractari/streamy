@@ -45,9 +45,7 @@ include 'php/Utils.php';
 	<body>
 		<div id="container">
 			<div id="top">
-				<select style="float: left; width:80px" name="instance" id="instance">
-					<option value="kuhna">Kuhna</option>
-					<option value="rok">Rok</option>
+				<select style="float: left; width:80px" name="outputs" id="outputs">
 				</select>
 				<table class="menuTable">
 					<tr>

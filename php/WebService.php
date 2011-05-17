@@ -280,6 +280,55 @@ class WebService
 	 **/
 	public static function getOutputs()
 	{
+		$data = NULL;
+		$db = new Database();
+
+		if(($outputs = $db->getOutputs()) != NULL)
+		{
+			$data =
+				array(
+					"outputs" => array(
+						"output" => array()
+					)
+				);
+						
+			for ($i = 0; $i < sizeof($outputs); $i++)
+			{
+				array_push($data['outputs']['output'], array(
+					"name" => $outputs[$i]['name'],
+					"id" => $outputs[$i]['id'],
+					"selected" => $outputs[$i]['selected']
+				));
+			}	
+			RestUtils::sendResponse(200, $data);
+		}
+		else
+		{
+			RestUtils::sendResponse(400);
+		}
+	}
+
+	/**
+	 * Set output to output with id $id
+	 * PUT /api/streams/outputs/$id
+	 *
+	 * @return void
+	 * @author Me
+	 **/
+	public static function setOutput($id)
+	{
+		if(!is_numeric($id))
+			return NULL;
+
+		$db = new Database();
+		if($db->setOutput($id) == 1)
+		{
+			RestUtils::sendResponse(200);
+		}
+		else
+		{
+			RestUtils::sendResponse(400);
+		}
 	}
 }
 

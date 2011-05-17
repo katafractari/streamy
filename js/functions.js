@@ -290,3 +290,87 @@ function remove(id)
 		}
 	});
 }
+
+/*
+ *  Function function_name()
+ *	Arguments:
+ *
+ */
+function setOutput(id) 
+{
+	$.ajax({
+		type: "PUT",
+		url: "/streammanager/api/outputs/"+ id,
+		data: { 
+			"id": id
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			var response = jqXHR.responseText;
+		},
+		success: function(xml, textStatus, jqXHR) {
+			getOutputs();
+			status();
+		}
+	});
+}
+ 
+
+/*
+ *  Function getOutputs()
+ *	Arguments: none
+ *
+ */
+ 
+function getOutputs()
+{
+	$.ajax({
+		type: "GET",
+		url: "/streammanager/api/outputs",
+		dataType: "xml",
+		success: function(xml) {
+			var html = "";
+			var index = 0;
+			outputs = new Array();
+			if($(xml).find("outputs"))
+			{
+				$(xml).find("output").each(function() 
+				{
+					var output = new Object();
+					output['name'] = $(this).find("name").text();
+					output['id'] = $(this).find("id").text();
+					output['selected'] = $(this).find("selected").text();
+					index++;
+
+					outputs.push(output);
+				});
+
+				$("#outputs").html();
+				var selected = null;
+				var selectHTML = "";
+				for (var i = 0; i < outputs.length; i++) 
+				{
+					if(outputs[i]['selected'] == 1)
+					{
+						selected = i;
+					}
+					else
+					{
+						selectHTML += "<option onclick=\"setOutput("+outputs[i]['id']+")\" value="+ outputs[i]['id'] +">"+outputs[i]['name']+"</option>";
+					}
+				}
+
+				if(typeof selected != null)
+				{
+					var html = "<option value="+ outputs[selected]['id'] +">"+outputs[selected]['name']+"</option>"+selectHTML;
+					$("#outputs").html(html);
+				}
+				else
+				{
+				}
+			}
+			else
+			{
+			}
+		}
+	});
+}

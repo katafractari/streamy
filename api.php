@@ -28,12 +28,20 @@ switch($data->getMethod())
 		{
 			WebService::streams($data);
 		}
+		else if(preg_match("/outputs$/", $data->getURI(), $matches))
+		{
+			WebService::getOutputs($data);
+		}
 		break;
 	// PUT functions
 	case 'put':
 		if(preg_match("/\/(\d+)\/play$/", $data->getURI(), $matches))
 		{
 			WebService::play($matches[1]);
+		}
+		if(preg_match("/\/outputs\/(\d+)$/", $data->getURI(), $matches))
+		{
+			WebService::setOutput($matches[1]);
 		}
 		break;
 	// POST functions

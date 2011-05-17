@@ -1,5 +1,6 @@
 // Init variables + functions + actions
 var streams = new Array();
+var outputs = new Array();
 var newStreamNameError = false;
 var newStreamURLError = false;
 
@@ -15,6 +16,7 @@ raisedErrors[NO_NAME_ERROR] = false;
 $(document).ready(function() {
 	status();
 	getStreams();
+	getOutputs();
 	prettyForms()
 	setInterval(status, 10000);		
 });

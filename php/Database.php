@@ -90,6 +90,30 @@ class Database
 	}
 
 	/**
+	 * Get all outputs
+	 *
+	 * @return void
+	 * @author Me
+	 **/
+	public function getOutputs()
+	{
+		$ret = NULL;
+		$query = "SELECT * FROM outputs";
+
+		$this->query($query);
+		if($this->result->num_rows > 0)
+		{
+			$ret = array();
+			while($entry = $this->result->fetch_assoc())
+			{
+				array_push($ret, $entry);
+			}
+		}
+		
+		return $ret;
+	}
+
+	/**
 	 * Check if the stream with name $name and url $url already exists in database
 	 *
 	 * @return array with results or NULL
@@ -191,6 +215,8 @@ class Database
 	public function removeStream($id)
 	{
 		$ret = false;
+		if(!is_numeric($id))
+			return $ret;
 
 		$query = "DELETE FROM streams WHERE id=". $id;
 		$this->query($query);
@@ -202,4 +228,31 @@ class Database
 		
 		return $ret;
 	}
+
+	/**
+	 * Set output to output $id
+	 *
+	 * @return void
+	 * @author Me
+	 **/
+	public function setOutput($id)
+	{
+		$ret = NULL;
+		if(!is_numeric($id))
+			return $ret;
+
+		$query = "UPDATE outputs SET selected=0";
+		$this->query($query);
+
+		$query = "UPDATE outputs SET selected=1 WHERE id=$id";
+		$this->query($query);
+
+		if($this->mysqli->affected_rows == 1)
+		{
+			$ret = 1;
+		}
+
+		return $ret;
+	}
+
 }
