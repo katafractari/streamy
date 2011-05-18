@@ -330,6 +330,29 @@ class WebService
 			RestUtils::sendResponse(400);
 		}
 	}
+
+	/**
+	 * Add an output
+	 * POST /api/streams/outputs
+	 *
+	 * @return void
+	 * @author Me
+	 **/
+	public static function addOutput($name, $hostname, $port)
+	{
+		$nameValid = Utils::validateOutputName($name);
+		$hostnameValid = Utils::validateOutputHostname($hostname);
+
+		$db = new Database();
+		if(is_numeric($id = $db->addOutput($name, $hostname, $port)))
+		{
+			RestUtils::sendResponse(200);
+		}
+		else
+		{
+			RestUtils::sendResponse(400);
+		}
+	}
 }
 
 ?>

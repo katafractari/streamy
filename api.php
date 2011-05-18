@@ -65,6 +65,27 @@ switch($data->getMethod())
 				RestUtils::sendResponse(400);
 			}
 		}
+		else if(preg_match("/outputs$/", $data->getURI(), $matches))
+		{
+			 $requestVars = $data->getRequestVars();
+			 $name = trim($requestVars['name']);
+			 $hostname = trim($requestVars['hostname']);
+			 $port = trim($requestVars['port']);
+
+			 if(strlen($name) > 0 && strlen($hostname) > 0 && $port > 0  &&
+			 	$port <= 65536)
+			 {
+			 	WebService::addOutput(
+					$requestVars['name'],
+					$requestVars['hostname'],
+					$requestVars['port']
+				);
+			 }
+			 else
+			 {
+			 	RestUtils::sendResponse(400);
+			 }
+		}
 		// Unknown POST request
 		RestUtils::sendResponse(400);
 		break;

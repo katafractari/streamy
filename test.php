@@ -7,7 +7,12 @@ $host = "streamer-ntc-aa08.somafm.com";
 $port = "80";
 $stream = "stream/1018";
 
-if(($fp = fsockopen($host, $port)))
+$url = "http://10.2.2.254:8000/purple";
+
+$urlData = parse_url($url);
+var_dump($urlData);
+
+if(($fp = fsockopen($urlData[̈́'host'], $port)))
 {
 	$mpeg = false;
 	$ogg = false;

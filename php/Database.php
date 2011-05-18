@@ -255,4 +255,30 @@ class Database
 		return $ret;
 	}
 
+	/**
+	 * Add an output
+	 *
+	 * @return void
+	 * @author Me
+	 **/
+	public function addOutput($name, $hostname, $port)
+	{
+		$ret = NULL;
+		if(!is_numeric($id))
+			return $ret;
+
+		$statement = 
+		$this->mysqli->prepare("INSERT INTO outputs (name, hostname, port, created) VALUES (?, ?, ?, now())");
+		$statement->bind_param("sss", $name, $hostname, $port);
+		$statement->execute();
+
+		$ret = $this->mysqli->insert_id;
+
+		if(is_numeric($id = $this->mysqli->insert_id))
+		{
+			$ret = $id;
+		}
+
+		return $ret;
+	}
 }

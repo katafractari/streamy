@@ -374,3 +374,28 @@ function getOutputs()
 		}
 	});
 }
+
+/*
+ *  Function function_name()
+ *	Arguments:
+ *
+ */
+function addOutput(name, hostname, port) 
+{
+	$.ajax({
+		type: "POST",
+		url: "/streammanager/api/outputs",
+		data: { 
+			name: name, 
+			hostname: hostname, 
+			port: port
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			var response = jqXHR.responseText;
+		},
+		success: function(xml, textStatus, jqXHR) {
+			getOutputs();
+			status();
+		}
+	});
+}
