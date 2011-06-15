@@ -14,6 +14,10 @@ function generateStreamsHtml()
 			
 		html += '<div class="'+ current +'" id="'+ i +'">';
 
+		html += '<span class="expand">';
+		html += '<img onmouseover="this.style.cursor=\'crosshair\'" onclick="expand('+ streams[i]["id"] +')" src="images/expand.png">&nbsp;';
+		html += '</span>';
+
 		html += '<span class="icon">';
 		html += '<img onmouseover="this.style.cursor=\'crosshair\'" onclick="play('+ streams[i]["id"] +')" src="images/radio.png">&nbsp;';
 		html += '</span>';
@@ -26,6 +30,11 @@ function generateStreamsHtml()
 		html += '<img onmouseover="this.style.cursor=\'crosshair\'" onclick="remove('+ streams[i]["id"] +')" src="images/remove.png">&nbsp;';
 		html += '</span>';
 
+		html += '</div>';
+
+		// Expandable div for additional stream info
+		html += '<div class="streamDetails" id="streamDetails_'+ i +'">';
+		html += 'test';
 		html += '</div>';
 	}
 	$("#streams").html("");

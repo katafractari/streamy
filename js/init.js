@@ -1,8 +1,11 @@
-// Init variables + functions + actions
+/*
+ * init.js
+ * Init variables + functions + actions
+ */
+
 var streams = new Array();
 var outputs = new Array();
-var newStreamNameError = false;
-var newStreamURLError = false;
+var outputsDropDownOpen = false;
 
 var raisedErrors = new Array();
 raisedErrors[DUPLICATE_NAME_ERROR] = false;
@@ -19,4 +22,17 @@ $(document).ready(function() {
 	getOutputs();
 	prettyForms()
 	setInterval(status, 10000);		
+
+	// Define hooks
+	$("#outputs").click(function() {
+		if(!outputsDropDownOpen)
+		{
+			//getOutputs();
+			outputsDropDownOpen = true;
+		}
+		else
+		{
+			outputsDropDownOpen = false;
+		}
+	});
 });

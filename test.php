@@ -8,11 +8,14 @@ $port = "80";
 $stream = "stream/1018";
 
 $url = "http://10.2.2.254:8000/purple";
+//$url = "http://blank-tv.de.streams.bassdrive.com:8000";
+
+# mplayer method
 
 $urlData = parse_url($url);
 var_dump($urlData);
 
-if(($fp = fsockopen($urlData[̈́'host'], $port)))
+if($fp = fsockopen($urlData["host"], $port))
 {
 	$mpeg = false;
 	$ogg = false;
@@ -29,6 +32,7 @@ Accept: */*
 
 EOF;
 			
+	echo $req;
     fputs($fp, $req);
 
 	$i=0;
@@ -78,8 +82,11 @@ EOF;
 		// If the response is type 200 then continue, extract the header
 		if(preg_match("/^[\r]?$/", $line))
 		{
-			echo "header-end";
-			$http_header_end = true;
+			if(!$http_header_end)
+			{
+				echo "header-end";
+				$http_header_end = true;
+			}
 			continue;
 		}
 

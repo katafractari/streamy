@@ -117,7 +117,7 @@ class Utils
 	 * @return array with metadata or FALSE
 	 * @author Me
 	 **/
-	public static function getStreamMetaData($url)
+	public static function getStreamTitle($url)
 	{
 		$ret = FALSE;
 
@@ -143,8 +143,6 @@ class Utils
 		{
 			$stream = "/";
 		}
-		//echo "hostname: ".$hostname."\n";
-		//echo "port: ".$port."\n";
 
 		if($fp = fsockopen($hostname, $port))
 		{
@@ -153,7 +151,7 @@ class Utils
 			$http_header_end = false;
 			$icy = false;
 
-			$phpVersion = phpversion();
+			// $phpVersion = phpversion();
 			$req = <<< EOF
 GET $stream HTTP/1.1
 User-Agent: Stream Manager
@@ -222,6 +220,10 @@ EOF;
 				{
 					//echo "header-end";
 					$http_header_end = true;
+
+					if(!is_numeric($icy))
+						break;
+
 					continue;
 				}
 
@@ -229,23 +231,27 @@ EOF;
 				{
 					continue;
 				}
-				if((list($name, $value) = split(": ?", $line, 2)))
+				
+				if(preg_match("/:/", $line))
 				{
-					if(preg_match("/content-type/i", $name))
-						if(preg_match("/audio\/mpeg/i", $value))
-						{
-							//echo $name." = ".$value;
-							$mpeg = true;
-							continue;
-						}
-					if(preg_match("/icy-metaint/i", $name))
+					if((list($name, $value) = split(": ?", $line, 2)))
 					{
-						if(preg_match("/.*1.*/", $value, $match))
+						if(preg_match("/content-type/i", $name))
+							if(preg_match("/audio\/mpeg/i", $value))
+							{
+								// print $name." = ".$value;
+								$mpeg = true;
+								continue;
+							}
+						if(preg_match("/icy-metaint/i", $name))
 						{
-							//echo "icy match\n";
-							//echo $match[0]."\n";
-							$icy = trim($match[0]);
-							continue;
+							if(preg_match("/.*1.*/", $value, $match))
+							{
+								//echo "icy match\n";
+								//echo $match[0]."\n";
+								$icy = trim($match[0]);
+								continue;
+							}
 						}
 					}
 				}
@@ -257,6 +263,15 @@ EOF;
 	}
 }
 
-// for testing
-//echo(Utils::getStreamMetaData("http://blank-tv.de.streams.bassdrive.com:8000"));
+// Testing
+// Parse cli arguments to get variables
+
+@parse_str($argv[1], $_GET);
+if(strlen($argv[2]) > 0)
+	$url = $argv[2];
+if(@$_GET['flag'] === "debug")
+{
+	if($title = Utils::getStreamTitle($url))
+		print $title."\n";
+}
 ?>

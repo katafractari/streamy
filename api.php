@@ -32,6 +32,10 @@ switch($data->getMethod())
 		{
 			WebService::getOutputs($data);
 		}
+		else if(preg_match("/streams\/(\d+)\/title$/", $data->getURI(), $matches))
+		{
+			WebService::getStreamTitle($matches[1]);
+		}
 		break;
 	// PUT functions
 	case 'put':

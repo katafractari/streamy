@@ -353,6 +353,41 @@ class WebService
 			RestUtils::sendResponse(400);
 		}
 	}
+
+	/**
+	 * Get current title from stream $id
+	 * GET /api/streams/$id/title
+	 *
+	 * @return string with title or NULL
+	 * @author Me
+	 **/
+	public static function getStreamTitle($id)
+	{
+		if(!is_numeric($id))
+			return NULL;
+
+		$db = new Database();
+		if(($stream = $db->getStream($id)) != NULL)
+		{
+			//print $stream['url']."\n";
+			$title = Utils::getStreamTitle($stream['url']);
+			if($title != NULL)
+			{
+				$data = 
+					array(
+						"stream" => array(
+							"title" => $title
+						)
+					);
+				RestUtils::sendResponse(200, $data);
+			}
+			else
+			{
+				RestUtils::sendResponse(400, $data);
+			}
+
+		}
+	}
 }
 
 ?>

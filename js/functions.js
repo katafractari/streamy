@@ -399,3 +399,15 @@ function addOutput(name, hostname, port)
 		}
 	});
 }
+
+/*
+ *  Function expandStream()
+ *	Arguments: id
+ *
+ *	Expand a div with additional info about a particular stream
+ *
+ */
+ 
+function expandStream (id) {
+	// body...
+}
