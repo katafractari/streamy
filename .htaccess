@@ -24,4 +24,4 @@ RewriteRule ^api/(.*)$ /streammanager/api.php?handler=$1 [QSA,NC,L]
 # RewriteCond %{REQUEST_FILENAME} !-f
 # RewriteRule .* /application/services/default.php?action=general [L]
 
-
+DirectoryIndex webapp.php
