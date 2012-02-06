@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pmd version="1.3.0" timestamp="2012-02-06T22:55:24+01:00">
+  <file name="/home/brejktru/workspace/streammanager/src/php/Database.php">
+    <violation beginline="38" endline="38" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
+      The method __construct() contains an exit expression.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/FirePHPCore/FirePHP.class.php">
+    <violation beginline="73" endline="1784" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="FirePHP" priority="3">
+      The class FirePHP has an overall complexity of 305 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="73" endline="1784" rule="ExcessiveClassLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasslength" class="FirePHP" priority="3">
+      The class FirePHP has 1712 lines of code. Current threshold is 1000. Avoid really long classes.
+    </violation>
+    <violation beginline="433" endline="433" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$errcontext'.
+    </violation>
+    <violation beginline="646" endline="646" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$m'.
+    </violation>
+    <violation beginline="737" endline="1046" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="fb" priority="3">
+      The method fb() has a Cyclomatic Complexity of 120. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="737" endline="1046" rule="NPathComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="FirePHP" method="fb" priority="3">
+      The method fb() has an NPath complexity of 5963229490296960. The configured NPath complexity threshold is 200.
+    </violation>
+    <violation beginline="737" endline="1046" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="FirePHP" method="fb" priority="3">
+      The method fb() has 310 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+    <violation beginline="1240" endline="1377" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="encodeObject" priority="3">
+      The method encodeObject() has a Cyclomatic Complexity of 33. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="1240" endline="1377" rule="NPathComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="FirePHP" method="encodeObject" priority="3">
+      The method encodeObject() has an NPath complexity of 17186. The configured NPath complexity threshold is 200.
+    </violation>
+    <violation beginline="1240" endline="1377" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="FirePHP" method="encodeObject" priority="3">
+      The method encodeObject() has 138 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+    <violation beginline="1385" endline="1413" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="is_utf8" priority="3">
+      The method is_utf8() has a Cyclomatic Complexity of 14. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="1533" endline="1737" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="json_encode" priority="3">
+      The method json_encode() has a Cyclomatic Complexity of 37. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="1533" endline="1737" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="FirePHP" method="json_encode" priority="3">
+      The method json_encode() has 205 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+    <violation beginline="1748" endline="1767" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="FirePHP" method="json_name_value" priority="3">
+      Avoid unused private methods such as 'json_name_value'.
+    </violation>
+    <violation beginline="1772" endline="1772" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$URL'.
+    </violation>
+    <violation beginline="1780" endline="1780" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$URL'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/FirePHPCore/FirePHP.class.php4">
+    <violation beginline="140" endline="1331" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="FirePHP" priority="3">
+      The class FirePHP has an overall complexity of 215 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="140" endline="1331" rule="ExcessiveClassLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasslength" class="FirePHP" priority="3">
+      The class FirePHP has 1192 lines of code. Current threshold is 1000. Avoid really long classes.
+    </violation>
+    <violation beginline="182" endline="183" rule="ConstructorWithNameAsEnclosingClass" ruleset="Naming Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/naming.html#constructorwithnameasenclosingclass" class="FirePHP" method="FirePHP" priority="3">
+      Classes should not have a constructor method with the same name as the class
+    </violation>
+    <violation beginline="296" endline="296" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$errcontext'.
+    </violation>
+    <violation beginline="512" endline="721" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="fb" priority="3">
+      The method fb() has a Cyclomatic Complexity of 79. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="512" endline="721" rule="NPathComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="FirePHP" method="fb" priority="3">
+      The method fb() has an NPath complexity of 7541437841280. The configured NPath complexity threshold is 200.
+    </violation>
+    <violation beginline="512" endline="721" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="FirePHP" method="fb" priority="3">
+      The method fb() has 210 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+    <violation beginline="883" endline="966" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="encodeObject" priority="3">
+      The method encodeObject() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="921" endline="921" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$properties'.
+    </violation>
+    <violation beginline="974" endline="998" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="is_utf8" priority="3">
+      The method is_utf8() has a Cyclomatic Complexity of 13. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="1118" endline="1304" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="FirePHP" method="json_encode" priority="3">
+      The method json_encode() has a Cyclomatic Complexity of 31. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="1118" endline="1304" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="FirePHPCore" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="FirePHP" method="json_encode" priority="3">
+      The method json_encode() has 187 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/Lastfm.php">
+    <violation beginline="9" endline="9" rule="UnusedPrivateField" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatefield" priority="3">
+      Avoid unused private fields such as '$apiClass'.
+    </violation>
+    <violation beginline="14" endline="14" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$authVars'.
+    </violation>
+    <violation beginline="15" endline="15" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$auth'.
+    </violation>
+    <violation beginline="16" endline="16" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$apiClass'.
+    </violation>
+    <violation beginline="20" endline="20" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$title'.
+    </violation>
+    <violation beginline="23" endline="23" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$methodVars'.
+    </violation>
+    <violation beginline="29" endline="29" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$artistClass'.
+    </violation>
+    <violation beginline="29" endline="29" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$apiClass'.
+    </violation>
+    <violation beginline="29" endline="29" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$auth'.
+    </violation>
+    <violation beginline="29" endline="29" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$config'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/MPD.php">
+    <violation beginline="75" endline="1004" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="mpd" priority="3">
+      The class mpd has an overall complexity of 205 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="121" endline="150" rule="ConstructorWithNameAsEnclosingClass" ruleset="Naming Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/naming.html#constructorwithnameasenclosingclass" class="mpd" method="mpd" priority="3">
+      Classes should not have a constructor method with the same name as the class
+    </violation>
+    <violation beginline="190" endline="231" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="mpd" method="SendCommand" priority="3">
+      The method SendCommand() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="190" endline="231" rule="NPathComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="mpd" method="SendCommand" priority="3">
+      The method SendCommand() has an NPath complexity of 290. The configured NPath complexity threshold is 200.
+    </violation>
+    <violation beginline="217" endline="217" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$junk'.
+    </violation>
+    <violation beginline="303" endline="329" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="+global" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="mpd" method="SetVolume" priority="3">
+      The method SetVolume() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="572" endline="572" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$rpt'.
+    </violation>
+    <violation beginline="597" endline="597" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$rpt'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/RestUtils.php">
+    <violation beginline="77" endline="77" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
+      The method sendResponse() contains an exit expression.
+    </violation>
+    <violation beginline="129" endline="129" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
+      The method sendResponse() contains an exit expression.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/Utils.php">
+    <violation beginline="30" endline="30" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$url'.
+    </violation>
+    <violation beginline="108" endline="230" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="streammanager" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="Utils" method="getStreamTitle" priority="3">
+      The method getStreamTitle() has a Cyclomatic Complexity of 27. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="108" endline="230" rule="NPathComplexity" ruleset="Code Size Rules" package="streammanager" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="Utils" method="getStreamTitle" priority="3">
+      The method getStreamTitle() has an NPath complexity of 64188. The configured NPath complexity threshold is 200.
+    </violation>
+    <violation beginline="108" endline="230" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="streammanager" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="Utils" method="getStreamTitle" priority="3">
+      The method getStreamTitle() has 123 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+    <violation beginline="132" endline="132" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$ogg'.
+    </violation>
+    <violation beginline="149" endline="149" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$i'.
+    </violation>
+    <violation beginline="150" endline="150" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$icy_metaint'.
+    </violation>
+    <violation beginline="163" endline="163" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$content'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/WebService.php">
+    <violation beginline="25" endline="114" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="streammanager" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="WebService" method="add" priority="3">
+      The method add() has a Cyclomatic Complexity of 12. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="42" endline="42" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$sizeof'.
+    </violation>
+    <violation beginline="235" endline="235" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$data'.
+    </violation>
+    <violation beginline="343" endline="343" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$nameValid'.
+    </violation>
+    <violation beginline="344" endline="344" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$hostnameValid'.
+    </violation>
+    <violation beginline="347" endline="347" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$id'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/album.php">
+    <violation beginline="77" endline="77" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="219" endline="219" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/artist.php">
+    <violation beginline="10" endline="750" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="lastfmApiArtist" priority="3">
+      The class lastfmApiArtist has an overall complexity of 79 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="74" endline="74" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="603" endline="603" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="692" endline="692" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="731" endline="731" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/auth.php">
+    <violation beginline="56" endline="88" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="lastfmApiAuth" method="__construct" priority="3">
+      The method __construct() has a Cyclomatic Complexity of 11. The configured cyclomatic complexity threshold is 10.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/event.php">
+    <violation beginline="60" endline="60" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="234" endline="234" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="273" endline="273" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/library.php">
+    <violation beginline="60" endline="60" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="99" endline="99" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="138" endline="138" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/playlist.php">
+    <violation beginline="60" endline="60" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/tasteometer.php">
+    <violation beginline="46" endline="150" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="lastfmApiTasteometer" method="compare" priority="3">
+      The method compare() has a Cyclomatic Complexity of 19. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="46" endline="150" rule="NPathComplexity" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="lastfmApiTasteometer" method="compare" priority="3">
+      The method compare() has an NPath complexity of 308. The configured NPath complexity threshold is 200.
+    </violation>
+    <violation beginline="46" endline="150" rule="ExcessiveMethodLength" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessivemethodlength" class="lastfmApiTasteometer" method="compare" priority="3">
+      The method compare() has 105 lines of code. Current threshold is set to 100. Avoid really long methods.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/track.php">
+    <violation beginline="10" endline="543" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="lastfmApiTrack" priority="3">
+      The class lastfmApiTrack has an overall complexity of 64 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="73" endline="73" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="112" endline="112" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="394" endline="394" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="433" endline="433" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+    <violation beginline="524" endline="524" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/api/user.php">
+    <violation beginline="10" endline="1006" rule="ExcessiveClassComplexity" ruleset="Code Size Rules" package="apicalls" externalInfoUrl="http://phpmd.org/rules/codesize.html#excessiveclasscomplexity" class="lastfmApiUser" priority="3">
+      The class lastfmApiUser has an overall complexity of 100 which is very high. The configured complexity threshold is 50.
+    </violation>
+    <violation beginline="128" endline="128" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$recentTracks'.
+    </violation>
+    <violation beginline="987" endline="987" rule="UnusedLocalVariable" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedlocalvariable" priority="3">
+      Avoid unused local variables such as '$call'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/class/apibase.php">
+    <violation beginline="163" endline="163" rule="UnusedFormalParameter" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedformalparameter" priority="3">
+      Avoid unused parameters such as '$return'.
+    </violation>
+    <violation beginline="236" endline="268" rule="CyclomaticComplexity" ruleset="Code Size Rules" package="base" externalInfoUrl="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" class="lastfmApi" method="getPackage" priority="3">
+      The method getPackage() has a Cyclomatic Complexity of 23. The configured cyclomatic complexity threshold is 10.
+    </violation>
+    <violation beginline="236" endline="268" rule="NPathComplexity" ruleset="Code Size Rules" package="base" externalInfoUrl="http://phpmd.org/rules/codesize.html#npathcomplexity" class="lastfmApi" method="getPackage" priority="3">
+      The method getPackage() has an NPath complexity of 252. The configured NPath complexity threshold is 200.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/class/cache.php">
+    <violation beginline="30" endline="30" rule="UnusedPrivateField" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatefield" priority="3">
+      Avoid unused private fields such as '$path'.
+    </violation>
+    <violation beginline="35" endline="35" rule="UnusedPrivateField" ruleset="Unused Code Rules" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatefield" priority="3">
+      Avoid unused private fields such as '$cache_length'.
+    </violation>
+    <violation beginline="236" endline="253" rule="UnusedPrivateMethod" ruleset="Unused Code Rules" package="base" externalInfoUrl="http://phpmd.org/rules/unusedcode.html#unusedprivatemethod" class="lastfmApiCache" method="show_all" priority="3">
+      Avoid unused private methods such as 'show_all'.
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/class/mysql.php">
+    <violation beginline="123" endline="126" rule="ConstructorWithNameAsEnclosingClass" ruleset="Naming Rules" package="base" externalInfoUrl="http://phpmd.org/rules/naming.html#constructorwithnameasenclosingclass" class="lastfmApiDatabase_result" method="lastfmApiDatabase_result" priority="3">
+      Classes should not have a constructor method with the same name as the class
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/class/socket.php">
+    <violation beginline="44" endline="58" rule="ConstructorWithNameAsEnclosingClass" ruleset="Naming Rules" package="base" externalInfoUrl="http://phpmd.org/rules/naming.html#constructorwithnameasenclosingclass" class="lastfmApiSocket" method="lastfmApiSocket" priority="3">
+      Classes should not have a constructor method with the same name as the class
+    </violation>
+  </file>
+  <file name="/home/brejktru/workspace/streammanager/src/php/lastfmapi/class/sqlite.php">
+    <violation beginline="86" endline="89" rule="ConstructorWithNameAsEnclosingClass" ruleset="Naming Rules" package="base" externalInfoUrl="http://phpmd.org/rules/naming.html#constructorwithnameasenclosingclass" class="lastfmApiDatabase_result" method="lastfmApiDatabase_result" priority="3">
+      Classes should not have a constructor method with the same name as the class
+    </violation>
+  </file>
+</pmd>
