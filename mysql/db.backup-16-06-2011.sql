@@ -18,7 +18,6 @@
 --
 -- Table structure for table `outputs`
 --
-
 DROP TABLE IF EXISTS `outputs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -39,7 +38,7 @@ CREATE TABLE `outputs` (
 
 LOCK TABLES `outputs` WRITE;
 /*!40000 ALTER TABLE `outputs` DISABLE KEYS */;
-INSERT INTO `outputs` VALUES (1,'Kuhna','10.2.2.254',6611,'2011-05-14 22:40:19',0),(2,'Rok','localhost',6610,'2011-05-14 22:40:19',1);
+INSERT INTO `outputs` VALUES (1,'Kuhna','10.2.2.254',6611,'2011-05-14 22:40:19',0),(2,'Rok','localhost',6600,'2011-05-14 22:40:19',1);
 /*!40000 ALTER TABLE `outputs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,7 +65,7 @@ CREATE TABLE `streams` (
 
 LOCK TABLES `streams` WRITE;
 /*!40000 ALTER TABLE `streams` DISABLE KEYS */;
-INSERT INTO `streams` VALUES (124,'Bassdrive','http://blank-tv.de.streams.bassdrive.com:8000',NULL,'2011-05-13 03:45:28'),(125,'Å tudent','http://kruljo.radiostudent.si:8000/hiq',NULL,'2011-05-13 05:41:55'),(9,'Monkey Radio','http://basu.cockos.com:6969','monkeyradio.jpg','2011-05-08 21:22:55'),(10,'Sofaspace','http://s1.sofaspace.net:8888/stream.ogg',NULL,'2011-05-08 21:22:55'),(11,'Yellow','http://10.2.2.254:8000/yellow',NULL,'2011-05-08 21:22:55'),(12,'Purple','http://10.2.2.254:8000/purple',NULL,'2011-05-08 21:22:55'),(130,'Red','http://10.2.2.254:8000/red',NULL,'2011-05-29 15:31:43'),(131,'Cyan','http://10.2.2.254:8000/cyan',NULL,'2011-05-29 15:32:32'),(75,'Radio Swiss Jazz','http://streaming30.radionomy.com:80/ABC-Lounge',NULL,'2011-05-08 21:22:55'),(74,'unifier-live','http://10.2.2.254:8000/live',NULL,'2011-05-08 21:22:55'),(121,'Green','http://10.2.2.254:8000/green',NULL,'2011-05-13 03:34:52'),(122,'Black','http://10.2.2.254:8000/black',NULL,'2011-05-13 03:38:04'),(69,'Somafm - Groove Salad','http://streamer-ntc-aa08.somafm.com:80/stream/1018',NULL,'2011-05-08 21:22:55'),(68,'MARÅ ','http://online.radiomars.si:8000/radiomars',NULL,'2011-05-08 21:22:55'),(132,'Brown','http://10.2.2.254:8000/brown',NULL,'2011-05-29 15:32:48'),(127,'Blue','http://10.2.2.254:8000/blue',NULL,'2011-05-29 15:20:02'),(128,'White','http://10.2.2.254:8000/white',NULL,'2011-05-29 15:31:06'),(129,'Orange','http://10.2.2.254:8000/orange',NULL,'2011-05-29 15:31:30');
+INSERT INTO `streams` VALUES (124,'Bassdrive','http://blank-tv.de.streams.bassdrive.com:8000',NULL,'2011-05-13 03:45:28'),(125,'Študent','http://kruljo.radiostudent.si:8000/hiq',NULL,'2011-05-13 05:41:55'),(9,'Monkey Radio','http://basu.cockos.com:6969','monkeyradio.jpg','2011-05-08 21:22:55'),(10,'Sofaspace','http://s1.sofaspace.net:8888/stream.ogg',NULL,'2011-05-08 21:22:55'),(11,'Yellow','http://10.2.2.254:8000/yellow',NULL,'2011-05-08 21:22:55'),(12,'Purple','http://10.2.2.254:8000/purple',NULL,'2011-05-08 21:22:55'),(130,'Red','http://10.2.2.254:8000/red',NULL,'2011-05-29 15:31:43'),(131,'Cyan','http://10.2.2.254:8000/cyan',NULL,'2011-05-29 15:32:32'),(75,'Radio Swiss Jazz','http://streaming30.radionomy.com:80/ABC-Lounge',NULL,'2011-05-08 21:22:55'),(74,'unifier-live','http://10.2.2.254:8000/live',NULL,'2011-05-08 21:22:55'),(121,'Green','http://10.2.2.254:8000/green',NULL,'2011-05-13 03:34:52'),(122,'Black','http://10.2.2.254:8000/black',NULL,'2011-05-13 03:38:04'),(69,'Somafm - Groove Salad','http://streamer-ntc-aa08.somafm.com:80/stream/1018',NULL,'2011-05-08 21:22:55'),(68,'MARŠ ','http://online.radiomars.si:8000/radiomars',NULL,'2011-05-08 21:22:55'),(132,'Brown','http://10.2.2.254:8000/brown',NULL,'2011-05-29 15:32:48'),(127,'Blue','http://10.2.2.254:8000/blue',NULL,'2011-05-29 15:20:02'),(128,'White','http://10.2.2.254:8000/white',NULL,'2011-05-29 15:31:06'),(129,'Orange','http://10.2.2.254:8000/orange',NULL,'2011-05-29 15:31:30');
 /*!40000 ALTER TABLE `streams` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

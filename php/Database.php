@@ -32,7 +32,7 @@ class Database
 	 **/
 	public function __construct()
 	{
-		$this->mysqli = new mysqli("localhost", "root", "", "streammanager");
+		$this->mysqli = new mysqli("localhost", "root", "somrakmalikov", "streammanager");
 		if (mysqli_connect_errno()) {
 			//printf("Connect failed: %s\n", mysqli_connect_error());
 			exit();
