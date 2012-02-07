@@ -3,6 +3,9 @@
  *
  */
 
+// Globals
+var API_BASE_URL = "/streammanager/src/api/";
+
 // Language (except error messages)
 var LANG_DUPLICATE_NAME = "*A stream with that name already exists*"
 

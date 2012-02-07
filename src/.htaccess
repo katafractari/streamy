@@ -7,7 +7,7 @@ RewriteEngine On
 # RewriteCond %{HTTP:X-HTTP-Method-Override} ^POST|GET [NC]
 
 # Main page
-RewriteRule ^api/(.*)$ /streammanager/api.php?handler=$1 [QSA,NC,L]
+RewriteRule ^api/(.*)$ /streammanager/src/api.php?handler=$1 [QSA,NC,L]
 
 # A simple routing mechanism for REST reuqests
 # All of GET methods

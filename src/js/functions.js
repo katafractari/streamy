@@ -144,7 +144,7 @@ function addStream(dialog, name, url, playOnAdd)
 
 			$.ajax({
 				type: "POST",
-				url: "/streammanager/api/streams",
+				url: API_BASE_URL + "streams",
 				data: { 
 					name: name, 
 					url: url
@@ -205,7 +205,7 @@ function status()
 {
 	$.ajax({
 		type: "GET",
-		url: "/streammanager/api/status",
+		url: API_BASE_URL + "status",
 		dataType: "xml",
 		success: function(xml) {
 			var name = $(xml).find("name").text();
@@ -236,7 +236,7 @@ function getStreams()
 {
 	$.ajax({
 		type: "GET",
-		url: "/streammanager/api/streams",
+		url: API_BASE_URL + "streams",
 		dataType: "xml",
 		success: function(xml) {
 			var html = "";
@@ -261,7 +261,7 @@ function play(id)
 {
 	$.ajax({
 		type: "PUT",
-			url: "/streammanager/api/streams/"+ id +"/play",
+			url: API_BASE_URL + "streams/"+ id +"/play",
 			// data: { test: "krneki" },
 		dataType: "xml",
 		error: function(jqXHR, textStatus, errorThrown) {
@@ -278,7 +278,7 @@ function remove(id)
 	var success;
 	$.ajax({
 		type: "DELETE",
-		url: "/streammanager/api/streams/"+ id,
+		url: API_BASE_URL + "streams/"+ id,
 		data: { 
 			"id": id
 		},
@@ -300,7 +300,7 @@ function setOutput(id)
 {
 	$.ajax({
 		type: "PUT",
-		url: "/streammanager/api/outputs/"+ id,
+		url: API_BASE_URL + "outputs/"+ id,
 		data: { 
 			"id": id
 		},
@@ -325,7 +325,7 @@ function getOutputs()
 {
 	$.ajax({
 		type: "GET",
-		url: "/streammanager/api/outputs",
+		url: API_BASE_URL + "outputs",
 		dataType: "xml",
 		success: function(xml) {
 			var html = "";
@@ -384,7 +384,7 @@ function addOutput(name, hostname, port)
 {
 	$.ajax({
 		type: "POST",
-		url: "/streammanager/api/outputs",
+		url: API_BASE_URL + "outputs",
 		data: { 
 			name: name, 
 			hostname: hostname, 
