@@ -15,7 +15,7 @@ function showAddStreamDialog()
 	$("#addStreamDialog").dialog(
 	{
 		"title": "Add a new stream",
-		"width": 300,
+		"width": 330,
 		"height": 200,
 		buttons: 
 		{ 

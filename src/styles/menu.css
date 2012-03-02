@@ -1,3 +1,6 @@
+.menuSeparator {
+	width: 58px;
+}
 .menuEntryText
 {
 	cursor: crosshair;

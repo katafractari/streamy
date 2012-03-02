@@ -8,6 +8,7 @@
  * @package streammanager
  **/
 
+
 class Database 
 {
 	/**
@@ -32,9 +33,9 @@ class Database
 	 **/
 	public function __construct()
 	{
-		$this->mysqli = new mysqli("localhost", "root", "somrakmalikov", "streammanager");
+		require_once "Config.php";
+		$this->mysqli = new mysqli(Config::MYSQL_HOST, Config::MYSQL_USER, Config::MYSQL_PASSWORD, Config::MYSQL_SCHEMA);
 		if (mysqli_connect_errno()) {
-			//printf("Connect failed: %s\n", mysqli_connect_error());
 			exit();
 		}
 	}

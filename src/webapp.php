@@ -55,6 +55,27 @@ include 'php/Utils.php';
 									<td>
 										<img onclick="showAddStreamDialog()" 
 											id="addButton" 
+											src="images/playing.png">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span class="menuEntryText" onclick="showAddStreamDialog()">
+											paused ...
+										</span>
+									</td>
+								</tr>
+							</table>
+						</td>
+						<td>
+							<div class="menuSeparator" />
+						</td>
+						<td>
+							<table class="menuEntry">
+								<tr>
+									<td>
+										<img onclick="showAddStreamDialog()" 
+											id="addButton" 
 											src="images/add.png">
 									</td>
 								</tr>

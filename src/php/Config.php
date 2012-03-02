@@ -6,6 +6,10 @@
  */
 
 class Config {
-	public $DEBUG = TRUE;
+	const DEBUG = TRUE;
+	const MYSQL_USER = "root";
+	const MYSQL_PASSWORD = "somrakmalikov";
+	const MYSQL_HOST = "localhost";
+	const MYSQL_SCHEMA = "streammanager";
 }
 ?>
