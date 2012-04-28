@@ -26,7 +26,7 @@ function showAddStreamDialog()
 					$("#newStreamName").val(),
 					$("#newStreamURL").val(),
 					false
-				); 
+					); 
 			},
 			"Add and Play": function() 
 			{ 
@@ -35,7 +35,7 @@ function showAddStreamDialog()
 					$("#newStreamName").val(),
 					$("#newStreamURL").val(),
 					true
-				); 
+					); 
 			}
 		} 
 	});
@@ -44,9 +44,9 @@ function showAddStreamDialog()
 	$("#newStreamURL").val("");
 	$("#dialogError").val("");
 
-	// Make inputs auto resizable
-	//$("#newStreamName").autoGrowInput();
-	//$("#newStreamURL").autoGrowInput();
+// Make inputs auto resizable
+//$("#newStreamName").autoGrowInput();
+//$("#newStreamURL").autoGrowInput();
 }
 
 /*
@@ -104,7 +104,7 @@ function unsetInputError (inputFieldName)
 	$(inputField).css("color", "black");
 }
 
- /*
+/*
   *  Function name: addStream
   *  Arguments:
   *  	dialog: the dialog object
@@ -163,7 +163,8 @@ function addStream(dialog, name, url, playOnAdd)
 	
 							setInputError({ 
 								"code": errorObj.code, 
-								"parameter": errorObj.parameter }
+								"parameter": errorObj.parameter
+							}
 							);
 							return;
 						});
@@ -184,21 +185,43 @@ function addStream(dialog, name, url, playOnAdd)
 		{
 			$("#dialogError").html("");
 			if(name.length == 0)
-				setInputError({ "code": NO_NAME_ERROR, "parameter": "name" });
-			setInputError({ "code": NO_URL_ERROR, "parameter": "url" });
+				setInputError({
+					"code": NO_NAME_ERROR, 
+					"parameter": "name"
+				});
+			setInputError({
+				"code": NO_URL_ERROR, 
+				"parameter": "url"
+			});
 		}
 	}
 	else
 	{	
 		$("#dialogError").html("");
 		if(url.length == 0)
-			setInputError({ "code": NO_URL_ERROR, "parameter": "url" });
-		setInputError({ "code": NO_NAME_ERROR });
+			setInputError({
+				"code": NO_URL_ERROR, 
+				"parameter": "url"
+			});
+		setInputError({
+			"code": NO_NAME_ERROR
+		});
 	}
 
 	// Return a code
 	// NULL or new stream ID
 	return ret;
+}
+
+function setPlayingState(state) {
+	if(state == "stop") {
+		$("#state").attr("src", "images/paused.png");
+		$("#stateText").text("paused");
+	}
+	else if(state == "play") {
+		$("#state").attr("src", "images/playing.png");
+		$("#stateText").text("playing");
+	}
 }
 
 function status()
@@ -215,8 +238,8 @@ function status()
 
 			if(coverUrl && 
 				$("#artCover").attr("src") != 'images/streams/'+ coverUrl &&
-					coverUrl != '')
-			{
+				coverUrl != '')
+				{
 				$("#artCover").attr('src', 'images/streams/'+ coverUrl);
 			}
 			else if(!coverUrl)
@@ -227,6 +250,10 @@ function status()
 			$("#name").html(name);
 			$("#url").html(url);
 			$("#title").html(title);
+			
+			var state = $(xml).find("state").text();
+			playing =  state == "play" ? true : false;
+			setPlayingState(state);
 		}
 	});
 }
@@ -261,8 +288,8 @@ function play(id)
 {
 	$.ajax({
 		type: "PUT",
-			url: API_BASE_URL + "streams/"+ id +"/play",
-			// data: { test: "krneki" },
+		url: API_BASE_URL + "streams/"+ id +"/play",
+		// data: { test: "krneki" },
 		dataType: "xml",
 		error: function(jqXHR, textStatus, errorThrown) {
 			console.log("error");
@@ -409,5 +436,5 @@ function addOutput(name, hostname, port)
  */
  
 function expandStream (id) {
-	// body...
+// body...
 }

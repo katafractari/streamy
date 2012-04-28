@@ -61,3 +61,20 @@
         
     })(jQuery);
 
+
+// Events
+// Play & stop
+function onClickChangeState() {
+	var command = playing ? "pause" : "play";
+	$.ajax({
+		type: "POST",
+		url: API_BASE_URL + command,
+		error: function(jqXHR, textStatus, errorThrown) {
+			var response = jqXHR.responseText;
+		},
+		success: function(xml, textStatus, jqXHR) {
+			getOutputs();
+			status();
+		}
+	});
+}

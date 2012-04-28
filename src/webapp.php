@@ -53,14 +53,14 @@ include 'php/Utils.php';
 							<table class="menuEntry">
 								<tr>
 									<td>
-										<img onclick="showAddStreamDialog()" 
-											id="addButton" 
-											src="images/playing.png">
+										<img onclick="onClickChangeState()" 
+											id="state" 
+											src="images/paused.png">
 									</td>
 								</tr>
 								<tr>
 									<td>
-										<span class="menuEntryText" onclick="showAddStreamDialog()">
+										<span id="stateText" class="menuEntryText" onclick="showAddStreamDialog()">
 											paused ...
 										</span>
 									</td>

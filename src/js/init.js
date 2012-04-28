@@ -15,6 +15,9 @@ raisedErrors[INVALID_URL_ERROR] = false;
 raisedErrors[NO_URL_ERROR] = false;
 raisedErrors[NO_NAME_ERROR] = false;
 
+// Global
+var playing = false;
+
 // On document ready
 $(document).ready(function() {
 	status();
