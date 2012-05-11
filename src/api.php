@@ -62,7 +62,7 @@ switch ($data->getMethod()) {
 	} else if (preg_match("/pause$/", $data->getURI())) {
 	    WebService::pauseCurrent();
 	    break;
-	} else if (preg_match("/outputs$/", $data->getURI(), $matches)) {
+	} else if (preg_match("/output$/", $data->getURI(), $matches)) {
 	    $requestVars = $data->getRequestVars();
 	    $name = trim($requestVars['name']);
 	    $hostname = trim($requestVars['hostname']);

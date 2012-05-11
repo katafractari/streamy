@@ -7,14 +7,14 @@ RewriteEngine On
 # RewriteCond %{HTTP:X-HTTP-Method-Override} ^POST|GET [NC]
 
 # Main page
-RewriteRule ^api/(.*)$ /streammanager/src/api.php?handler=$1 [QSA,NC,L]
+RewriteRule ^api/(.*)$ /streamy/src/api.php?handler=$1 [QSA,NC,L]
 
 # A simple routing mechanism for REST reuqests
 # All of GET methods
 #RewriteCond %{REQUEST_METHOD} ^GET [NC,OR]
-#RewriteCond %{REQUEST_URI} ^/streammanager [NC]
-#RewriteRule ^(status|play|stop)$ /streammanager/api.php?action=$1 [L]
-#RewriteRule ^streams$ /streammanager/api.php?action=streams [L]
+#RewriteCond %{REQUEST_URI} ^/streamy [NC]
+#RewriteRule ^(status|play|stop)$ /streamy/api.php?action=$1 [L]
+#RewriteRule ^streams$ /streamy/api.php?action=streams [L]
 
 #yes, I intentionally left this very loose for this sample
 # RewriteRule accounts/(reset)/(.+) /application/services/accounts-open.php?action=$1&arguments[]=$2 [L]

@@ -1,4 +1,4 @@
-<div id="addStreamDialog">
+<div class="addDialog" id="addStreamDialog">
 
 	<form id="myForm" action="comment.php" method="post"> 
 		<table>
@@ -15,7 +15,7 @@
 					URL:
 				</td>
 				<td>
-					<input size=35 type="text" id="newStreamURL" /><br><br>
+					<input value="6060" size=35 type="text" id="newStreamURL" /><br><br>
 				</td>
 			</tr>
 			<tr>

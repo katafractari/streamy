@@ -64,6 +64,32 @@
 
 // Events
 // Play & stop
+function onClickAddOutput() {
+	$("#addOutputDialog").dialog(
+	{
+		"title": "Add a new output",
+		"width": 330,
+		"height": 200,
+		buttons: 
+		{ 
+			"Add": function() 
+			{ 
+				addOutput(
+					$(this), 
+					$("#newOutputName").val(),
+					$("#newOutputHost").val(),
+					$("#newOutputPort").val()
+					); 
+			}
+		} 
+	});
+	// Clear inputs just in case
+	$("#newOutputName").val("");
+	$("#newOutputHost").val("");
+	$("#newOutputPort").val("6600");
+	$("#dialogError").val("");
+}
+
 function onClickChangeState() {
 	var command = playing ? "pause" : "play";
 	$.ajax({

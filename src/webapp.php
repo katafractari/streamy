@@ -14,7 +14,7 @@ include 'php/Utils.php';
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
-		<title>Stream manager</title>
+		<title>Streamy</title>
 		<meta name="author" content="Rok Pergarec" />
 		<meta http-equiv="reply-to" content="brejktru@gmail.com" />
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -22,18 +22,15 @@ include 'php/Utils.php';
 		<link rel="stylesheet" type="text/css" media="print" href="styles/print.css" />
 		<link rel="stylesheet" type="text/css" media="handheld" href="styles/handheld.css" />
 		<link rel="stylesheet" type="text/css" href="styles/status.css" />
-		<link rel="stylesheet" type="text/css" href="styles/jquery-ui-1.8.11.custom.css" />
+		<link rel="stylesheet" type="text/css" href="styles/jquery-ui.css" />
 		<link rel="stylesheet" type="text/css" href="styles/streams.css" />
 		<link rel="stylesheet" type="text/css" href="styles/menu.css" />
-		<link rel="stylesheet" type="text/css" href="styles/addStreamDialog.css" />
+		<link rel="stylesheet" type="text/css" href="styles/addDialog.css" />
 		<link rel="stylesheet" type="text/css" href="styles/art.css" />
 		<link rel="stylesheet" type="text/css" href="styles/prettyForms.css" />
 
-		<script type="text/javascript" src="js/jquery-1.5.2.js"></script>
-		<script 
-			type="text/javascript" 
-			src="js/jquery-ui-1.8.11.custom.min.js">
-		</script>
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/defines.js"></script>
 		<script type="text/javascript" src="js/ui.js"></script>
 		<script type="text/javascript" src="js/util.js"></script>
@@ -45,8 +42,10 @@ include 'php/Utils.php';
 	<body>
 		<div id="container">
 			<div id="top">
-				<select style="float: left; width:80px" name="outputs" id="outputs">
+				<select style="width:130px" name="outputs" id="outputs">
 				</select>
+				<br/>
+				<img onclick="onClickAddOutput()" src="images/add-plus-sign.png" />
 				<table class="menuTable">
 					<tr>
 						<td>
@@ -125,6 +124,7 @@ include 'php/Utils.php';
 		
 		<?php
 		Utils::includeTemplate("addStreamDialog");
+		Utils::includeTemplate("addOutputDialog");
 		?>
 	</body>
 </html>

@@ -4,7 +4,7 @@ body { font: normal 0.7em Verdana; background: #515151; }
 #logo { position: absolute; top: 2em; left: 46em; }
 #logo a:hover { background: none; }
 #logo img { width: 16.1em; height: 7.9em; }
-#top { text-align: right; float: right; width: 53.3em; height: 124px; background: url('../images/top.gif'); position: absolute; top: 0; left: 0; }
+#top { float: right; width: 53.3em; height: 124px; background: url('../images/top.gif'); position: absolute; top: 0; left: 0; }
 #status { background: #fff; width: 100%; }
 #sidebar { width: 10em; position: absolute; top: 11em; left: 0; padding: 0px; }
 #sidebar h2 { margin-top: -0.1em; }

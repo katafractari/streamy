@@ -105,6 +105,117 @@ function unsetInputError (inputFieldName)
 }
 
 /*
+  *  Function name: addOutput
+  *  Arguments:
+  *  	dialog: the dialog object
+  *		name: name of stream
+  *		url: url of stream
+  *		playOnAdd: whether to play the stream on successfull add
+  *	 Returns:
+  *	 	Success: id of the new stream
+  *	 	Error: 1
+  */
+  
+function addOutput(dialog, name, host, port)
+{
+	// The return code
+	var ret = null;
+	var a = 0;
+
+	// Check the function arguments
+	if(typeof dialog != "object")
+		return ret;
+	else if(typeof name != "string")
+		return ret;
+	else if(typeof url != "string")
+		return ret;
+
+	// Unraise all errors before proceding
+	for (var i = 0; i <raisedErrors.length; i++) {
+		raisedErrors[i] = false;
+	}
+
+	if(name.length > 0)
+	{
+		if(host.length > 0)
+		{
+			if(port.length > 0) {
+				// Url is OK, so is name
+				var ret = null;
+
+				$.ajax({
+					type: "POST",
+					url: API_BASE_URL + "output",
+					data: { 
+						name: name, 
+						host: host,
+						port: port 
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						var response = jqXHR.responseText;
+						$("#dialogError").html("");
+						if($(response).find("errors"))
+						{
+							$(response).find("error").each(function() {
+								// Get a single error representation
+								var errorObj =	{ 
+									"parameter": $(this).find("parameter").text(),
+									"code": $(this).find("code").text()
+								};
+	
+								setInputError({ 
+									"code": errorObj.code, 
+									"parameter": errorObj.parameter
+								}
+								);
+								return;
+							});
+						}
+
+					},
+					success: function(xml, textStatus, jqXHR) {
+						//alert(new XMLSerializer().serializeToString(xml));
+						var id = $(xml).find("id").text();
+						$(dialog).dialog("close");
+						getStreams();
+						if(playOnAdd)
+							play(id);
+					}
+				});
+			}
+			else
+			{
+				$("#dialogError").html("");
+				if(name.length == 0)
+					setInputError({
+						"code": NO_NAME_ERROR, 
+						"parameter": "name"
+					});
+				setInputError({
+					"code": NO_URL_ERROR, 
+					"parameter": "url"
+				});
+			}
+		}
+	}
+	else
+	{	
+		$("#dialogError").html("");
+		if(url.length == 0)
+			setInputError({
+				"code": NO_URL_ERROR, 
+				"parameter": "url"
+			});
+		setInputError({
+			"code": NO_NAME_ERROR
+		});
+	}
+
+	// Return a code
+	// NULL or new stream ID
+	return ret;
+}
+/*
   *  Function name: addStream
   *  Arguments:
   *  	dialog: the dialog object
