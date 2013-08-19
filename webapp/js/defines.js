@@ -4,7 +4,7 @@
  */
 
 // Globals
-var API_BASE_URL = "/streamy/src/api/";
+var API_BASE_URL = "/api/";
 
 // Language (except error messages)
 var LANG_DUPLICATE_NAME = "*A stream with that name already exists*"

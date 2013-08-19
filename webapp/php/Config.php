@@ -10,6 +10,6 @@ class Config {
 	const MYSQL_USER = "root";
 	const MYSQL_PASSWORD = "somrakmalikov";
 	const MYSQL_HOST = "localhost";
-	const MYSQL_SCHEMA = "streammanager";
+	const MYSQL_SCHEMA = "streamy";
 }
 ?>
