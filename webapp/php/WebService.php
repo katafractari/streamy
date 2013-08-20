@@ -244,7 +244,6 @@ class WebService {
     public static function status($data) {
 	$db = new Database();
 	$mpd = MPDInstance::connect($db);
-//		var_dump($mpd);
 
 	if ($mpd->connected) {
 
